@@ -1,19 +1,25 @@
 
 input_word = str(input())
-output_word = []
 count = 0
-count_word = []
+del_word = []
+output_word = []
 
 for i in range(0, len(input_word) - 1):
 
-    if(input_word[i] < input_word[i + 1]):
-        output_word.append(input_word[i])
+    if(i == len(input_word) - 2):
+        if(input_word[len(input_word) - 2] > input_word[len(input_word) - 1]):
+            del_word.append(input_word[len(input_word) - 1])
+            output_word.append(input_word[i])
+
 
     elif(input_word[i] > input_word[i + 1]):
         count = count + 1
-        count_word.append(input_word[i])
+        del_word.append(input_word[i])
+
+    elif(input_word[i] < input_word[i + 1]):
+        output_word.append(input_word[i])
 
 
-print("제거된 알파벳", count_word)
+print("제거된 알파벳", del_word)
 print("출력된 알파벳", output_word)
 print(count)
